@@ -1,0 +1,37 @@
+---
+- name: update cache
+  apt:
+    update_cache: true
+
+- name: update so
+  apt: 
+    name: 
+     - vim 
+     - curl 
+     - telnet 
+     - unzip 
+     - wget 
+     - net-tools 
+     - htop 
+     - nmap
+
+- name: set a hostname
+  hostname: desafio_02_vagrant_ansible
+
+- name: add user
+  user:
+        name: joao
+        shell: /bin/bash
+        home:  /home/joao
+
+- name: add user for sudoers
+  lineinfile:
+        dest: /etc/sudoers
+        line: "joao ALL=(ALL:ALL) NOPASSWD: ALL"        
+
+
+...
+
+
+
+  
